@@ -5,10 +5,12 @@ import twitterIcon from "../../../../public/twitter-icon.jpeg";
 import { useState } from "react";
 import LoginModal from "../LoginModal/LoginModal";
 import { useUser } from "@/src/api/Context/UserContext";
+import { useRouter } from "next/navigation";
 
 // import { useState, useEffect } from "react";
 
 const Navbar = () => {
+  const router = useRouter();
   const [isModalActive, setIsModalActive] = useState<boolean>(false);
   const { retrieveUser, logout } = useUser();
   const isUserLoggedIn = retrieveUser();
@@ -24,11 +26,18 @@ const Navbar = () => {
     setDomLoaded(true);
   }, []); */
 
+  const pushHome = () => {
+    router.push("/");
+  };
+
   return (
     <header>
       <nav className="bg-slate-950 border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-x">
-          <a href="https://flowbite.com" className="flex items-center">
+        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-x ">
+          <a
+            onClick={() => pushHome()}
+            className="flex items-center hover:cursor-pointer"
+          >
             <Image
               src={twitterIcon}
               width={30}

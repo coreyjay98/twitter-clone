@@ -16,7 +16,12 @@ const Feed = () => {
     const getTweets = async () => {
       const tweets = await fetchTweets();
       if (tweets) {
-        setTweets(tweets);
+        const sortedTweets = tweets.sort(
+          (a, b) =>
+            new Date(b.post.timestamp.date).getTime() -
+            new Date(a.post.timestamp.date).getTime()
+        );
+        setTweets(sortedTweets);
       }
     };
     getTweets();
@@ -27,7 +32,12 @@ const Feed = () => {
     const getTweets = async () => {
       const tweets = await fetchTweets();
       if (tweets) {
-        setTweets(tweets);
+        const sortedTweets = tweets.sort(
+          (a, b) =>
+            new Date(b.post.timestamp.date).getTime() -
+            new Date(a.post.timestamp.date).getTime()
+        );
+        setTweets(sortedTweets);
       }
     };
     getTweets();
@@ -54,7 +64,6 @@ const Feed = () => {
       <div className="pb-72">
         {tweets.map((tweet: Tweet) => {
           const isLiked = user ? user.likedTweets.includes(tweet.id) : false;
-          console.log(isLiked, tweet.likes, user?.likedTweets, tweet.id);
           return <Post key={tweet.id} tweet={tweet} isLiked={isLiked} />;
         })}
       </div>
