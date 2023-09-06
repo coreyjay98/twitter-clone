@@ -1,4 +1,4 @@
-import React from 'react'
+/* import React from 'react'
 
 export default function NextJsLogo() {
   return (
@@ -46,3 +46,4 @@ export default function NextJsLogo() {
     </svg>
   )
 }
+ */

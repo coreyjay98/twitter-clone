@@ -1,17 +1,50 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./app/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/flowbite/**/*.js",
+    "./pages/**/*.{html,js}",
+    "./src/components/**/*.{html,js,ts,tsx}",
+    "./src/Layouts/**/*.{html,js,ts,tsx}",
+    "./src/**/*.{html,ts,tsx}",
+  ],
+  darkMode: "class",
   theme: {
-    extend: {
-      colors: {
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        btn: {
-          background: 'hsl(var(--btn-background))',
-          'background-hover': 'hsl(var(--btn-background-hover))',
-        },
+    colors: {
+      twitterBlue: "#1d9bf0",
+      blue: {
+        50: "#eff6ff",
+        100: "#dbeafe",
+        200: "#bfdbfe",
+        300: "#93c5fd",
+        400: "#60a5fa",
+        500: "#3b82f6",
+        600: "#2563eb",
+        700: "#1d4ed8",
+        800: "#1e40af",
+        900: "#1e3a8a",
+        950: "#172554",
+      },
+      slate: {
+        50: "#f8fafc",
+        100: "#f1f5f9",
+        200: "#e2e8f0",
+        300: "#cbd5e1",
+        400: "#94a3b8",
+        500: "#64748b",
+        600: "#475569",
+        700: "#334155",
+        800: "#1e293b",
+        900: "#0f172a",
+        950: "#020617",
+      },
+      background: "hsl(var(--background))",
+      foreground: "hsl(var(--foreground))",
+      btn: {
+        background: "hsl(var(--btn-background))",
+        "background-hover": "hsl(var(--btn-background-hover))",
       },
     },
   },
-  plugins: [],
-}
+  plugins: [require("flowbite/plugin")],
+};
